@@ -24,7 +24,7 @@ outsampleClearedTraining<-clearedTraining[outsamp,]
 #train the model
 modelFit<-train(classe~.,data=insampleClearedTraining,method="rf",trControl = trainControl(method = "cv"),model=FALSE)
 
-#predict values of 2nd sample in order to check the estimated out of sample error
+#predict values of new testing set in order to check the estimated out of sample error
 predInSamp<-predict(modelFit,outsampleClearedTraining)
 summary(predInSamp==outsampleClearedTraining$classe)
 
